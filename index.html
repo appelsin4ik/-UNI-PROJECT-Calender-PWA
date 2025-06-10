@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#0077cc" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jahreskalender</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <button id="burger" aria-label="Menü öffnen">☰</button>
+    <button id="darkToggle" aria-label="Dark Mode umschalten">☽</button>
+    <div id="overlayTopbar" class="hidden">
+<div id="overlayContent">
+  <h2 class="overlay-title">Jahr auswählen:</h2>
+  <div class="overlay-controls">
+    <select id="jahrwahl"></select>
+    <button id="zuruecksetzen">🗓️ Aktuelles Jahr</button>
+  </div>
+</div>
+    </div>
+
+  <h1 id="kalenderjahr" class="kalenderjahr"></h1>
+  <div id="kalender" class="kalender-grid"></div>
+
+  <div id="feiertagPopup" class="hidden">
+  <div id="popupContent">
+    <span id="popupClose">&times;</span>
+    <p id="popupText"></p>
+  </div>
+</div>
+
+  <script src="app.js" defer></script>
+</body>
+</html>

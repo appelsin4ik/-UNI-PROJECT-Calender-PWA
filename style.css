@@ -1,0 +1,332 @@
+/* ==============================
+   Allgemeine Übergänge & Darkmode-Switch
+============================== */
+body, .tage-grid div {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ==============================
+   Dark Mode
+============================== */
+body.dark {
+  background-color: #121212;
+  color: #f0f0f0;
+}
+
+body.dark .monat { border-color: #555; }
+body.dark .feiertag { background-color: #3a8dad; color: #e0f7ff; }
+body.dark .heute { background-color: #b04141; color: white; }
+body.dark .kombiniert-tag {
+  background: linear-gradient(to left, #b04141 50%, #4d6473 50%);
+  color: white;
+}
+body.dark #kalenderjahr {
+  color: #e0e0e0;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+}
+body.dark #kalenderjahr::after { background: #66ccff; }
+body.dark .monat h3 { color: #e0e0e0; border-bottom: 1px solid #666; }
+body.dark #burger { color: #e0e0e0; }
+body.dark #darkToggle { color: #e0e0e0; }
+body.dark #jahrwahl {
+  background-color: #2a2a2a;
+  color: #f0f0f0;
+  border: 1px solid #555;
+  box-shadow: 0 2px 4px rgba(255,255,255,0.05);
+}
+body.dark .overlay-title { color: #e0e0e0; }
+body.dark #popupContent {
+  background: #1e1e1e;
+  color: #e0e0e0;
+  box-shadow: 0 8px 24px rgba(255, 255, 255, 0.1);
+}
+body.dark #popupClose { color: #aaa; }
+body.dark #popupClose:hover { color: #fff; }
+
+/* ==============================
+   Hauptsteuer-Buttons (Burger & Dark Toggle)
+============================== */
+#burger, #darkToggle {
+  position: fixed;
+  bottom: 1rem;
+  z-index: 100;
+  font-size: 1.8rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+#burger { left: 1rem; color: #333; }
+#darkToggle { right: 1rem; color: #333; }
+
+/* ==============================
+   Overlay für Jahresauswahl
+============================== */
+#overlayTopbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(5px);
+  transform: translateY(-100%);
+  transition: transform 0.5s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  padding: 1rem;
+}
+#overlayTopbar.active { transform: translateY(0); }
+
+/* ==============================
+   Overlay-Inhalt
+============================== */
+.overlay-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #222;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  text-shadow: 1px 1px 0 rgba(0,0,0,0.04);
+  position: relative;
+}
+.overlay-title::after {
+  content: "";
+  display: block;
+  width: 120px;
+  height: 2px;
+  background: linear-gradient(to right, #bbb, #ddd, #bbb);
+  margin: 0.5rem auto 0;
+  border-radius: 2px;
+}
+
+.overlay-controls {
+  display: flex;
+  flex-direction: row;
+  gap: 0.75rem;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.overlay-controls select {
+  width: 140px;
+  font-size: 1rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  text-align: center;
+}
+
+.overlay-controls button {
+  font-size: 1rem;
+  padding: 0.5rem 1.2rem;
+  border-radius: 6px;
+  border: none;
+  background-color: #0077cc;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.overlay-controls button:hover {
+  background-color: #005fa3;
+}
+
+/* ==============================
+   Responsive Design für Overlay
+============================== */
+@media (max-width: 500px) {
+  #overlayContent {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.5rem;
+  }
+  .overlay-controls {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  .overlay-controls select,
+  .overlay-controls button {
+    width: 80%;
+    max-width: 250px;
+    text-align: center;
+  }
+}
+
+
+
+
+/* ==============================
+   Kalenderlayout
+============================== */
+.kalender-grid {
+  display: grid;
+  gap: 1rem;
+  padding: 1rem;
+    grid-template-columns: repeat(4, 1fr); /* 4 Spalten */
+  grid-template-rows: repeat(3, auto);   /* 3 Zeilen */
+}
+
+@media (max-width: 1024px) {
+  .kalender-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-rows: auto;
+  }
+}
+
+.monat {
+  border: 1px solid #aaa;
+  padding: 0.5rem;
+  height: auto;
+}
+
+.monat h3 {
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 0.25rem;
+}
+
+/* ==============================
+   Tageszellen & Formatierungen
+============================== */
+.heute {
+  background-color: #ffcccb;
+  font-weight: bold;
+}
+
+.feiertag {
+  background-color: #c2e7ff;
+  cursor: help;
+}
+
+.kombiniert-tag {
+  background: linear-gradient(to left, #ffcccb 50%, #c2e7ff 50%);
+  font-weight: bold;
+}
+
+.tage-grid {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-auto-rows: 3rem;
+  gap: 2px;
+}
+
+.tage-grid div {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 2.5rem;
+  box-sizing: border-box;
+  overflow: hidden;
+  /* width: 100%; */
+  /* border-radius: 4px; */
+  /* text-align: top; */
+}
+
+.tage-grid:not(:first-of-type) div:nth-child(8n+1) {
+  align-items: center;
+  justify-content: flex-start;
+  /* padding-top: 0.2rem; */
+}
+
+.tag-zahl {
+  font-size: 1rem;
+  display: block;
+  line-height: 1.2;
+}
+
+.tag-emoji {
+  font-size: 1rem;
+  display: block;
+  line-height: 1;
+}
+
+/* ==============================
+   Jahresüberschrift
+============================== */
+#kalenderjahr {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 1.5rem 0 1rem;
+  color: #1a1a1a;
+}
+
+#kalenderjahr::after {
+  content: "";
+  display: block;
+  width: 50px;
+  height: 3px;
+  background: #0077cc;
+  margin: 0.5rem auto 0;
+  border-radius: 2px;
+}
+
+/* ==============================
+   Popup-Feiertagsanzeige
+============================== */
+#feiertagPopup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+#feiertagPopup.hidden {
+  display: none;
+}
+
+#popupContent {
+  background: white;
+  color: #222;
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  position: relative;
+  max-width: 300px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  animation: popupFadeIn 0.3s ease-out;
+}
+
+#popupClose {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  color: #888;
+  transition: color 0.3s;
+}
+
+#popupClose:hover { color: #333; }
+
+@keyframes popupFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

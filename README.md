@@ -73,17 +73,17 @@ Below are some visuals of the application (you should replace these placeholders
    ```
    
 3. Serve with a local HTTP server (because service workers require HTTPS or localhost)
-For example, using npm:
+   For example, using npm:
 
-  ```bash
-  npx serve
-  ```
+    ```bash
+    npx serve
+    ```
 
-  or using Python:
-  
-  ```bash
-  python -m http.server
-  ```
+    or using Python:
+    
+    ```bash
+    python -m http.server
+    ```
 
 4. Open browser at http://localhost:5000 (or the port your server uses)
 5. Inspect in browser devtools → Application tab → check service worker, manifest, and caching

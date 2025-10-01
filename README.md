@@ -52,7 +52,7 @@ Below are some visuals of the application (you should replace these placeholders
 
 <p align="center">
   <img src="icons/calender_view_light.png" alt="Calendar View Light" width="500"/>
-  <img src="icons/calender_view_light.png" alt="Calendar View Light" width="500"/>
+  <img src="icons/calender_view_dark.png" alt="Calendar View Dark" width="500"/>
 </p>
 *(Monthly calendar layout, highlighting holidays)*
 

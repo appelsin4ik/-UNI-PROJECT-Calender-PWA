@@ -51,18 +51,42 @@ Below are some visuals of the application (you should replace these placeholders
 ### 🗓 Calendar View
 
 <p align="center">
-  <img src="icons/calendar_view.png" alt="Calendar View" width="500"/>
+  <img src="icons/calender_view_light.png" alt="Calendar View Light" width="500"/>
+  <img src="icons/calender_view_dark.png" alt="Calendar View Dark" width="500"/>
 </p>
 *(Monthly calendar layout, highlighting holidays)*
 
 ---
 
-### ⚙ PWA Install Prompt / Offline Indicator
+## 🚀 How to Run / Test Locally
 
-<p align="center">
-  <img src="icons/pwa_install.png" alt="PWA Install Prompt" width="400"/>
-</p>
-*(Prompt for installing the app / showing offline notice)*
+1. Clone the repo
+   
+   ```bash
+   git clone https://github.com/yourusername/Calendar-PWA.git
+   ```
+   
+2. Navigate into the directory
+   
+   ```bash
+   cd Calendar-PWA
+   ```
+   
+3. Serve with a local HTTP server (because service workers require HTTPS or localhost)
+   For example, using npm:
+
+    ```bash
+    npx serve
+    ```
+
+    or using Python:
+    
+    ```bash
+    python -m http.server
+    ```
+
+4. Open browser at http://localhost:5000 (or the port your server uses)
+5. Inspect in browser devtools → Application tab → check service worker, manifest, and caching
 
 ---
 

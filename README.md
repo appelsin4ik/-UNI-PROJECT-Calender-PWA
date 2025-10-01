@@ -69,7 +69,7 @@ Below are some visuals of the application (you should replace these placeholders
    cd Calendar-PWA
    ```
 3. Serve with a local HTTP server (because service workers require HTTPS or localhost)
-For example, using npm:
+  For example, using npm:
   ```bash
   npx serve
   ```

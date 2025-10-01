@@ -44,6 +44,28 @@ Here’s how the project is organized:
 
 ---
 
+## 📸 Screenshots & Demo
+
+Below are some visuals of the application (you should replace these placeholders with your actual images / GIFs):
+
+### 🗓 Calendar View
+
+<p align="center">
+  <img src="icons/calendar_view.png" alt="Calendar View" width="500"/>
+</p>
+*(Monthly calendar layout, highlighting holidays)*
+
+---
+
+### ⚙ PWA Install Prompt / Offline Indicator
+
+<p align="center">
+  <img src="icons/pwa_install.png" alt="PWA Install Prompt" width="400"/>
+</p>
+*(Prompt for installing the app / showing offline notice)*
+
+---
+
 ## 🎯Next Steps & Future Improvements
 
 - Add multi-language support (English)
